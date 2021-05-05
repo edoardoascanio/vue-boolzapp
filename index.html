@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Boolzap</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<body>
+    <main id="app">
+        <div class="back-banner"></div>
+        <div class="container">
+            <div class="left-side">
+                <div class="toolbar">
+                    <div class="my-avatar-container">
+                        <img src="img/avatar_io.png" alt="">
+
+                        <div class="flex-grow"></div>
+                        <div class="tools-container">
+                            <div>
+                                <i class="fa fa-circle-o-notch"></i>
+                            </div>
+                            <div>
+                                <i class="fa fa-comment"></i>
+                            </div>
+                            <div>
+                                <i class="fa fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="opt-bar">
+                    <div class="bell">
+                        <i class="fa fa-bell-slash-o"></i>
+                    </div>
+                    <div class="opt-text">
+                        <p><strong>Ricevi notifiche di nuovi messaggi</strong></p>
+                        <p class="grey-text">Attiva notifiche desktop</p>
+                    </div>
+                </div>
+
+                <div class="users-list-container">
+                    <div class="users-list" :class="{selected: user.avatar === selectedUser.avatar}" v-for="(user, index) in usersList" :key="index" @click="onUserClick(user)">
+                        <img src="`img/avatar${user.avatar}.png`" alt="" class="avatar">
+
+                        <div class="flex-fill">
+                            <strong>{{user.name}}</strong>
+                            <br>
+                            <span>Non ci sono messaggi</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-side">
+
+
+                <section class="head-bar">
+
+                </section>
+
+                <section class="foot-bar">
+
+                </section>
+
+            
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

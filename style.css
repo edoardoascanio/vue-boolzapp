@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #dadbd5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#app{
+    display: flex;
+}
+
+.grey-text{
+    color: grey;
+}
+
+.flex-grow{
+    flex-grow: 1;
+}
+
+.container{
+    width: 1200px;
+    margin: auto;
+    height: 90vh;
+    background-color: #ededed;
+    margin-top: 43px;
+    display: flex;
+    z-index: 2;
+}
+
+.back-banner{
+    height: 150px;
+    width: 100%;
+    background-color: #009788;
+    position: absolute;
+    top: 0;
+}
+
+.left-side{
+    flex-basis: 30%;
+}
+
+.right-side{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background-image: url(img/pattern.png);
+    background-size: 40%;
+}
+
+.head-bar{
+    height: 60px;
+    background-color: #dadbd5;
+    border-left: 1px solid grey;
+}
+
+.toolbar{
+    width: 100%;
+    background-color: #dadbd5;
+    padding: 5px;
+}
+
+.my-avatar-container img{
+    width: 15%;
+}
+
+.tools-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tools-container i{
+    display: flex;
+    color: grey;
+    margin: 5px;
+}
+
+.foot-bar{
+    display: flex;
+    height: 60px;
+    background-color: #dadbd5;
+    border: 1px solid grey;
+    align-self: flex-end;
+}
+
+.opt-bar{
+    width: 100%;
+    background-color:lightskyblue;
+    display: table;
+    content: "";
+    clear: both;
+    padding: 5px;
+
+}
+
+.bell{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: lightskyblue;
+    font-size: 25px;
+}
+
+.bell i{
+  margin: 10px;
+}
+
+.opt-text{
+    margin: 10px;
+}
+
