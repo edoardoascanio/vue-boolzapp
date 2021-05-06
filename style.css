@@ -123,6 +123,10 @@ body{
     margin: 10px;
 }
 
+.opt-text p{
+    margin: 4px;
+}
+
 .users-list-container{
     overflow: auto;
     background-color: white;
