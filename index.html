@@ -22,18 +22,18 @@
 
                         <div class="flex-grow"></div>
                         <div class="tools-container">
-                            <div>
+                            <a href="#" class="btn-link">
                                 <i class="fa fa-circle-o-notch"></i>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="#" class="btn-link">
                                 <i class="fa fa-comment"></i>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="#" class="btn-link">
                                 <i class="fa fa-ellipsis-v"></i>
-                            </div>
+                            </a>
                         </div>
                     </div>
-                   
+
                 </div>
 
                 <div class="opt-bar">
@@ -51,12 +51,21 @@
                         <a href="#" class="btn-link">
                             <i class="fa fa-search"></i>
                         </a>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText" @input="onInput">
+
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText">
+
+
+                        <div class="times">
+                            <a href="#" class="btn-link" v-if="searchText" @click="searchText =''">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="users-list-container">
-                    <div class="users-list" :class="{selected: user.avatar === selectedUser.avatar}" v-for="(user, index) in filteredUsersList" v-bind:key="index" @click="onUserClick(user)">
+                    <div class="users-list" :class="{selected: user.avatar === selectedUser.avatar}"
+                        v-for="(user, index) in filteredUsersList" v-bind:key="index" @click="onUserClick(user)">
                         <img src="`imgs/avatar${user.avatar}.jpg`" alt="" class="avatar">
 
                         <div class="flex-fill">
@@ -72,21 +81,64 @@
             <div class="right-side">
 
                 <section class="head-bar">
-                     
+                    <div class="avatar-user">
+                        <strong>{{user.name}}</strong>
+                        <br>
+                        <span>Ultimo messaggio alle ore 10:15</span>
+                    </div>
+
+                    <div class="headbar-icons">
+                        <a href="#" class="btn-link">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <a href="#" class="btn-link">
+                            <i class="fa fa-paperclip"></i>
+                        </a>
+                        <a href="#" class="btn-link">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </a>
+                    </div>
+
                 </section>
 
+                <div class="chat-container" ref="">
+                    <div class="message"
+                        :class="{received: message.status === 'received', sent: message.status === 'sent'}"
+                        v-for="(message, index) in selectedUser.messages" :key="index">{{message.text}}
 
+                        <div class="time">
+                            {{ formatTime(message.date) }}
+                        </div>
+                    </div>
+                </div>
 
                 <section class="foot-bar">
+                    <div class="emoji-btn">
+                        <a href="#" class="btn-link">
+                            <i class="fa fa-smile"></i>
+                        </a>
+                    </div>
 
+                    <div class="send-input">
+                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage"
+                            @focusin="showSendIcon = true" @focusout="showSendIcon = false">
+                    </div>
+
+                    <!-- <a href="#" class="btn-link btn-active" v-if="showSendIcon">
+                        <i class="fa fa-paper-plane"></i>
+                    </a> -->
+
+                    <a href="#" class="btn-link" v-else="showSendIcon">
+                        <i class="fa fa-microphone"></i>
+                    </a>
                 </section>
-            
+
             </div>
         </div>
 
     </main>
 
-     <script src="data.js"></script>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 
