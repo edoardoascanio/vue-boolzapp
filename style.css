@@ -124,6 +124,7 @@ body{
 }
 
 .users-list-container{
+    overflow: auto;
     background-color: white;
 }
 
