@@ -1,4 +1,4 @@
-const userList = [
+const usersList = [
     {
         name: 'Michele',
         avatar: '_1',
@@ -81,4 +81,4 @@ const userList = [
             }
         ],
     },
-]
+];

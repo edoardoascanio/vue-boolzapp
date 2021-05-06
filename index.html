@@ -18,7 +18,7 @@
             <div class="left-side">
                 <div class="toolbar">
                     <div class="my-avatar-container">
-                        <img src="img/avatar_io.png" alt="">
+                        <img src="imgs/avatar_io.png" alt="">
 
                         <div class="flex-grow"></div>
                         <div class="tools-container">
@@ -46,9 +46,18 @@
                     </div>
                 </div>
 
+                <div class="search-bar">
+                    <div class="search-input">
+                        <a href="#" class="btn-link">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText" @input="onInput">
+                    </div>
+                </div>
+
                 <div class="users-list-container">
-                    <div class="users-list" :class="{selected: user.avatar === selectedUser.avatar}" v-for="(user, index) in usersList" :key="index" @click="onUserClick(user)">
-                        <img src="`img/avatar${user.avatar}.png`" alt="" class="avatar">
+                    <div class="users-list" :class="{selected: user.avatar === selectedUser.avatar}" v-for="(user, index) in filteredUsersList" v-bind:key="index" @click="onUserClick(user)">
+                        <img src="`imgs/avatar${user.avatar}.jpg`" alt="" class="avatar">
 
                         <div class="flex-fill">
                             <strong>{{user.name}}</strong>
@@ -62,22 +71,22 @@
 
             <div class="right-side">
 
-
                 <section class="head-bar">
-
+                     
                 </section>
+
+
 
                 <section class="foot-bar">
 
                 </section>
-
             
             </div>
         </div>
 
     </main>
 
-
+     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 

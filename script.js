@@ -4,7 +4,10 @@ const app = new Vue({
     data: {
         userList: globalUserslList,
         selectedUser: {},
-        searchText: ""
+        searchText: "",
+        newMsgText: "",
+        showSendIcon: false,
+        filteredUsersList: []
     },
 
     computed: {
@@ -14,8 +17,11 @@ const app = new Vue({
 
             return this.formatTime(lastMsgDate);
         },
-        filteredUserList(){
 
+        filteredUserList() {
+            return this.userList.filter((element) => {
+                return element.name.toLowerCase().startWith(this.searchText.toLowerCase());
+            });
         }
     },
 
@@ -33,13 +39,46 @@ const app = new Vue({
             return moment(stringDate, "DD/MM/YYYY HH:mm:ss").format("HH:mm")
         },
 
-        onImput() {
-            console.log("input");
+        sendMessage() {
+            const newMessage = {
+                date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                text: this.newMsgText,
+                status: 'sent'
+            };
+
+            const currentUser = this.selectedUser;
+
+            currentUser.messages.push(newMessage)
+
+            this.newMsgText = "";
+
+            this.scrollToBottom();
+
+            setTimeout(() => {
+                const newRespMsg = {
+                    date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                    text: "Tutto Ok",
+                    status: 'received'
+                };
+
+                currentUser.messages.push(newRespMsg);
+
+            },5000);
         },
-    },
+
+        scrollToBottom() {
+            this.$nextTick(() => {
+                const htmlElement = this.$refs.chatContainerToScroll;
+
+                htmlElement.scrollTop = htmlElement.scrollHeight;
+
+            });
+
+        },
         
-    mounted() {
-        this.selectedUser = this.userList[0];
+        mounted() {
+            this.selectedUser = this.userList[0];
+        }
+
     }
-    
 })

@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #dadbd5;
+    background-color: lightgrey;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
@@ -49,15 +49,22 @@ body{
     display: flex;
     flex-direction: column;
     height: 90vh;
-    background-image: url(img/pattern.png);
-    background-size: 40%;
+    background-image: url(imgs/pattern.png);
+    background-size: 50%;
 }
 
 .head-bar{
-    height: 60px;
+    height: 50px;
     background-color: #dadbd5;
     border-left: 1px solid grey;
 }
+
+.foot-bar{
+    display: flex;
+    height: 50px;
+    background-color: #dadbd5;
+    border: 1px solid grey;
+} 
 
 .toolbar{
     width: 100%;
@@ -65,27 +72,29 @@ body{
     padding: 5px;
 }
 
+.my-avatar-container{
+    position: relative;
+}
+
 .my-avatar-container img{
-    width: 15%;
+    width: 12%;
+    position: absolute;
+    bottom: -5px;
 }
 
 .tools-container{
     display: flex;
     justify-content: flex-end;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .tools-container i{
     display: flex;
+    align-self: center;
     color: grey;
-    margin: 5px;
-}
-
-.foot-bar{
-    display: flex;
-    height: 60px;
-    background-color: #dadbd5;
-    border: 1px solid grey;
-    align-self: flex-end;
+    margin: 6px;
+    font-size: 16px;
 }
 
 .opt-bar{
@@ -100,19 +109,48 @@ body{
 
 .bell{
     float: left;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: white;
     color: lightskyblue;
-    font-size: 25px;
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 12px;
 }
 
-.bell i{
-  margin: 10px;
-}
-
-.opt-text{
+.opt-text {
     margin: 10px;
 }
 
+.users-list-container{
+    background-color: white;
+}
+
+.search-input{
+    position: relative;
+    width: 95%;
+    margin: 8px;
+    border: none;
+    border-radius: 15px;
+    padding: 16px;
+    background-color: white;
+}
+
+.search-input input{
+    width: 60%;
+    border: none;
+    position: absolute;
+    bottom: 8px;
+    left: 45px;
+}
+
+.search-input a{
+    text-decoration: none;
+    position: absolute;
+    bottom: 6px;
+    left: 15px;
+    font-size: 18px;
+    color: lightgrey;
+    z-index: 1;
+}
