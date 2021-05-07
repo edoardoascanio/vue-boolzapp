@@ -131,11 +131,6 @@ body{
     margin: 4px;
 }
 
-.users-list-container{
-    overflow: auto;
-    background-color: white;
-}
-
 .search-input{
     position: relative;
     width: 95%;
@@ -168,6 +163,19 @@ body{
     position: absolute;
     bottom: 4px;
     left: 280px;
+}
+
+.users-list-container{
+    overflow: auto;
+    background-color: white;
+    height: 520px;
+}
+
+.flex-fill{
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+    margin: 0;
 }
 
 .headbar-icons{
