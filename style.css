@@ -65,6 +65,7 @@ body{
     display: flex;
     height: 50px;
     background-color: #dadbd5;
+    border-bottom: 3px solid lightgrey;
     position: relative;
 } 
 
@@ -169,13 +170,17 @@ body{
     overflow: auto;
     background-color: white;
     height: 520px;
+
 }
 
-.flex-fill{
-    margin-bottom: 20px;
-    border-bottom: 1px solid grey;
+.users-avatar{
+    overflow: hidden;
+    border-bottom: 1px solid lightgrey;
     padding: 10px;
-    margin: 0;
+}
+
+.users-avatar:hover{
+    background-color: lightgrey;
 }
 
 .headbar-icons{

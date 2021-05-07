@@ -20,7 +20,7 @@ const app = new Vue({
 
         filteredUserList() {
             return this.userList.filter((element) => {
-                return element.name.toLowerCase().startWith(this.searchText.toLowerCase());
+                return element.name.toLowerCase().startsWith(this.searchText.toLowerCase());
             });
         }
     },
