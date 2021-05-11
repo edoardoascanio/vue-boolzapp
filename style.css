@@ -231,7 +231,7 @@ body{
     text-decoration: none;
     position: absolute;
     bottom: 8px;
-    right: 30px;
+    left: 30px;
     font-size: 18px;
     color: grey;
     z-index: 2;

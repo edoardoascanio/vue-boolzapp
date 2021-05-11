@@ -63,21 +63,41 @@ const app = new Vue({
 
                 currentUser.messages.push(newRespMsg);
 
-            },5000);
+            }, 5000);
         },
 
         scrollToBottom() {
             this.$nextTick(() => {
-                const htmlElement = this.$refs.chatContainerToScroll;
+                const htmlElement = this.$refs.chat;
 
                 htmlElement.scrollTop = htmlElement.scrollHeight;
 
             });
 
         },
-        
+
+        activeDefine(message) {
+            message.active = !message.active;
+        },
+
+        showPopUpDefine(message) {
+            message.showPopUp = !message.showPopUp;
+        },
+
+        messageDelete(message) {
+            this.clickedUser.message.splice(message, 1)
+        },
+
+
         mounted() {
             this.selectedUser = this.userList[0];
+
+            this.userList.forEach(user => {
+                user.messages.forEach(message =>{
+                    message.showPopUp = false
+                })
+
+            })
         }
 
     }
